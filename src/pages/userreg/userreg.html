@@ -1,0 +1,90 @@
+<!--
+  Generated template for the UserregPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User Registration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup] = "form" >
+    <div class="uinputs">
+        <ion-item class="uname">
+          <ion-label floating>
+            <ion-icon icon left name="md-person"></ion-icon> Name
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="Name" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.controls.name.hasError('required') && form.controls.name.touched">
+            <p> name is required!</p>
+        </ion-item>
+        <ion-item *ngIf="form.controls.name.hasError('minlength') && form.controls.name.touched">
+            <p>minimum 3 characters</p>
+        </ion-item>
+        <ion-item *ngIf="form.controls.name.hasError('pattern') && form.controls.name.touched">
+            <p> alphabets only</p>
+        </ion-item>
+        <br>
+        <ion-item class="uuser">
+          <ion-label floating>
+            <ion-icon icon left name="checkmark-circle"></ion-icon> UserName
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="Username" formControlName="user"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.controls.user.hasError('required') && form.controls.user.touched">
+            <p>Username is required!</p>
+        </ion-item>
+        <ion-item *ngIf="form.controls.user.hasError('minlength') && form.controls.user.touched">
+            <p>minimum 3 characters</p>
+        </ion-item>
+        <br>
+        <ion-item class="pass">
+            <ion-label floating>
+              <ion-icon icon left name="md-lock"></ion-icon> Password
+            </ion-label>
+            <ion-input type="password" [(ngModel)]="Password"  formControlName="pass"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.controls.pass.hasError('required') && form.controls.pass.touched">
+              <p>Password is required!</p>
+          </ion-item>
+          <ion-item *ngIf="form.controls.pass.hasError('minlength') && form.controls.pass.touched">
+              <p>minimum 3 characters</p>
+          </ion-item>
+          <br>
+        <ion-item class="uadd">
+            <ion-label floating>
+              <ion-icon icon left name="home"></ion-icon> Address
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="Address" formControlName="addr"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="form.controls.addr.hasError('required') && form.controls.addr.touched">
+              <p>Address is required!</p>
+          </ion-item>
+          <ion-item *ngIf="form.controls.addr.hasError('minlength') && form.controls.addr.touched">
+              <p>minimum 3 characters</p>
+          </ion-item>
+          <br>
+          <ion-item class="ucont">
+              <ion-label floating>
+                <ion-icon icon left name="contact"></ion-icon> Contact
+              </ion-label>
+              <ion-input type="Number" [(ngModel)]="Contact" formControlName="cont" ></ion-input>
+            </ion-item>
+            <ion-item *ngIf="form.controls.cont.hasError('required') && form.controls.cont.touched">
+                <p>Contact is required!</p>
+            </ion-item>
+            <ion-item *ngIf="form.controls.cont.hasError('minlength') && form.controls.cont.touched">
+                <p>Contact should be 10 digits</p>
+            </ion-item>
+            <br>
+        <button ion-button color="dark" outline class="register" (click)="add()" [disabled]="!form.valid"><b>Register</b></button>
+      </div>
+      </form>
+</ion-content>

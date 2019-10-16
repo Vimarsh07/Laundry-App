@@ -1,0 +1,19 @@
+page-display {
+    ion-content{
+        height:100%;
+        width: 100%;
+       // background: radial-gradient(#7B7B7D ,#5e5e5e);
+       background: linear-gradient(-30deg,#51a2e4 30%,rgb(255, 255, 255) 70%);
+        
+    }
+    .output{
+        align-content: center;
+
+    }
+    ion-item{
+        background: transparent!important;
+    }
+    button{
+width: 100%!important;
+    }
+}

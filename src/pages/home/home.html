@@ -1,0 +1,68 @@
+<ion-header color="black">
+
+  <ion-navbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-menu [content]="mycontent">
+  <ion-content>
+
+    <ion-list>
+      <br><br><br><br><br><br>
+      <br><br><br><br><br><br>
+      <button ion-button color="dark" outline class="cprof" (click)="push1()"><b>Admin Login</b></button>
+      <br><br><br>
+      <button ion-button color="dark" outline class="csave" (click)="push2()"><b>User Registration</b></button>
+      <br><br><br>
+      <button ion-button color="dark" outline class="ccont" (click)="push3()"><b>Admin Registration</b></button>
+    </ion-list>
+
+
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <div class="loginp">
+      <ion-list>
+        <ion-item class="uname">
+          <ion-label floating>
+            <ion-icon icon left name="md-mail"></ion-icon> Username
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="Username" formControlName="user"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.controls.user.hasError('required') && form.controls.user.touched">
+          <p> name is required!</p>
+        </ion-item>
+        <ion-item *ngIf="form.controls.user.hasError('minlength') && form.controls.user.touched">
+          <p>minimum 3 characters</p>
+        </ion-item>
+        <ion-item *ngIf="form.controls.user.hasError('pattern') && form.controls.user.touched">
+          <p> alphabets only</p>
+        </ion-item>
+        <br>
+        <ion-item class="pass">
+          <ion-label floating>
+            <ion-icon icon left name="md-lock"></ion-icon> Password
+          </ion-label>
+          <ion-input type="password" [(ngModel)]="Password" formControlName="pass"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-item *ngIf="form.controls.pass.hasError('required') && form.controls.pass.touched">
+        <p>Password is required!</p>
+      </ion-item>
+      <ion-item *ngIf="form.controls.pass.hasError('minlength') && form.controls.pass.touched">
+        <p>minimum 3 characters</p>
+      </ion-item>
+      <br>
+      <button ion-button color="dark" outline class="login" (click)="add()"
+        [disabled]="!form.valid"><b>Login</b></button>
+    </div>
+  </form>
+</ion-content>
